@@ -232,6 +232,23 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   transition: background-color 0.3s ease-in-out;
 }
 
+.required {
+  color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
+  /* Initially hide the error messages */
+}
+
+input.error, textarea.error {
+  border: 2px solid red;
+  /* Red border for invalid fields */
+}
+
 /* Contact Form Container (Hidden Initially) */
 .contact-form-container {
   position: fixed;
