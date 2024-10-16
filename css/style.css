@@ -478,6 +478,15 @@ input.error, textarea.error {
   left: 15px;
 }
 
+.logo-small {
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: 700;
+  left: 15px;
+  padding-top: 0px;
+  margin-top: 5px;
+}
+
 @media (max-width: 991.98px) {
   .logo {
     left: 20px;
