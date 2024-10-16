@@ -484,7 +484,7 @@ input.error, textarea.error {
   font-weight: 700;
   left: 15px;
   padding-top: 0px;
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 @media (max-width: 991.98px) {
@@ -1055,6 +1055,12 @@ input.error, textarea.error {
 
 #sticky-wrapper.is-sticky .sticky-nav .logo {
   color: #000000 !important;
+
+}
+
+#sticky-wrapper.is-sticky .sticky-nav .logo-small {
+  color: #000000 !important;
+
 }
 
 #sticky-wrapper.is-sticky .sticky-nav .site-menu>li>a {
