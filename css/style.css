@@ -239,9 +239,28 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 .error-message {
   color: red;
   font-size: 12px;
-  margin-top: 5px;
+  margin-top: -5px;
+  margin-bottom: 10px;
   display: none;
   /* Initially hide the error messages */
+}
+
+.success-message {
+  background-color: rgba(19, 106, 213, 0.6);
+  /* Blue transparent background */
+  color: white;
+  /* White text */
+  padding: 5px 5px;
+  border-radius: 5px;
+  position: absolute;
+  /* Positioning near the icon */
+  /* top: 50px; */
+  /* Adjust as per your icon position */
+  /* left: 50px; */
+  /* Adjust as per your icon position */
+  z-index: 9999;
+  /* Ensure it appears above other content */
+  font-size: 14px;
 }
 
 input.error, textarea.error {
@@ -275,8 +294,10 @@ input.error, textarea.error {
 
 .contact-form input, .contact-form textarea {
   width: 100%;
-  padding: 8px;
-  margin: 8px 0;
+  padding: 2px;
+  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
