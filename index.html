@@ -953,7 +953,7 @@
       });
 
       // Handle form submission
-      document.getElementById("sendButton").addEventListener("click", function(event) {
+      document.getElementById("sendButton").addEventListener("click", async function(event) {
         event.preventDefault(); // Prevent the form from submitting immediately
     
         // Clear previous errors
@@ -996,11 +996,46 @@
     
         // If valid, submit the form or do something else
         if (valid) {
+
+          const apiUrl = 'https://example.com/api/sendMessage'; // Replace with your API endpoint
+            const data = {
+                name: name,
+                email: email,
+                phone: phone,
+                message: message
+            };
+
+            try{
+              const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.status == 200) {
+                  document.getElementById("contactForm").style.display = "none";
+                  clearFormFields();
+                  clearErrors();
+                  showSuccessMessage();
+
+                }else{
+                  
+                  showErrorMessage()
+                  console.error("Failure:", response.message);
+                }
+
+            }catch(error){
+              
+              showErrorMessage()
+              console.error("Error:", error);
+            }
             // Hide the form
-            document.getElementById("contactForm").style.display = "none";
-            clearFormFields();
-            clearErrors();
-            showSuccessMessage();
+            // document.getElementById("contactForm").style.display = "none";
+            // clearFormFields();
+            // clearErrors();
+            // showSuccessMessage();
             // alert("Form submitted successfully!");
             // You can submit the form or handle the data here
         }
@@ -1052,6 +1087,30 @@
           return phoneRe.test(phone);
       }
 
+      function showErrorMessage(){
+        const errorMessage = document.createElement("div");
+        errorMessage.classList.add("error-message2");
+        errorMessage.textContent = "Your message could not be sent!";
+        
+        // Add the message to the body (instead of appending to the icon)
+        document.body.appendChild(errorMessage);
+
+        // Position the message near the contactUsIcon
+        const contactUsIcon = document.getElementById("contactUsIcon");
+        const iconPosition = contactUsIcon.getBoundingClientRect();
+
+        // Adjust the position to be relative to the contactUsIcon
+        errorMessage.style.position = "fixed";
+        errorMessage.style.top = (iconPosition.top - 5) + "px";  // Place it just below the icon
+        errorMessage.style.left = (iconPosition.left - 150) + "px";        // Align it with the icon's left side
+        errorMessage.style.zIndex = "9999";                          // Ensure it's visible above other elements
+
+        // Remove the message after 5 seconds
+        setTimeout(function() {
+          errorMessage.remove();
+          }, 5000);
+      }
+      
       function showSuccessMessage() {
         const successMessage = document.createElement("div");
         successMessage.classList.add("success-message");
