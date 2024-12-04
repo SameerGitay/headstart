@@ -2485,3 +2485,8 @@ input.error, textarea.error {
 .site-footer .copyright {
   color: rgba(255, 255, 255, 0.5);
 }
+
+#contactUsIcon2 {
+  pointer-events: none;
+  /* Disables pointer events, allowing parent <a> to be clicked */
+}
